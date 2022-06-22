@@ -7,6 +7,7 @@ def load_previous_input(label):
 def save_input(label, new_value):
     """Overwrite previous input with new input"""
     st.session_state[label] = new_value
+    st.write(new_value)
 
 with st.sidebar:
     selected_page = st.radio('Select Page', ['Page 1', 'Page 2'])
