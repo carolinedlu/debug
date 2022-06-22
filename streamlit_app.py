@@ -13,7 +13,7 @@ with st.sidebar:
     selected_page = st.radio('Select Page', ['Page 1', 'Page 2'])
 
 if selected_page == 'Page 1':
-    with st.form:
+    with st.form("form"):
         label = 'Multiselect Field'
         value = load_previous_input(label)
         options = ['a','b','c']
