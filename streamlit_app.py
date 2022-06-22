@@ -13,12 +13,14 @@ with st.sidebar:
     selected_page = st.radio('Select Page', ['Page 1', 'Page 2'])
 
 if selected_page == 'Page 1':
-    label = 'Multiselect Field'
-    value = load_previous_input(label)
-    options = ['a','b','c']
-    user_val = st.multiselect(label, options, value)
-    if user_val:
-        save_input(label, user_val)
+    with st.form:
+        label = 'Multiselect Field'
+        value = load_previous_input(label)
+        options = ['a','b','c']
+        user_val = st.multiselect(label, options, value)
+        submitted = st.form_submit_button("Submit")
+        if submitted and user_val:
+            save_input(label, user_val)
 
 elif selected_page == 'Page 2':
     st.write("""Page 2: User does stuff on this page, when clicking back to Page 1, I want the field to
